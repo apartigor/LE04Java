@@ -11,5 +11,10 @@ public class Programa {
 
     public void salveGuys() {
         System.out.println("nada nao");
+
+        
+    }
+    public static void salve() {
+        System.out.println("teste 12345678");
     }
 }
