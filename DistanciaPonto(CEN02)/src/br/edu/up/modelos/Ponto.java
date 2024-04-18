@@ -1,11 +1,14 @@
 package br.edu.up.modelos;
 
-import java.lang.Math;
-
 public class Ponto {
     private double x;
     private double y;
-    private double calc;
+
+
+    public Ponto() {
+        this.x = 0;
+        this.y = 0;
+    }
 
     public Ponto(double x, double y) {
         this.x = x;
@@ -28,8 +31,9 @@ public class Ponto {
         this.y = y;
     }
 
-    public double calcularDistancia(double x, double y, Ponto p) {
-        return Math.sqrt(Math.pow((p), 2) + Math.pow((p), 2));
+    public double calcularDistancia(Ponto outroPonto) {
+        double distanciaX = outroPonto.getX() - this.x;
+        double distanciaY = outroPonto.getY() - this.y;
+        return Math.sqrt(Math.pow(distanciaX, 2) + Math.pow(distanciaY, 2));
     }
-
 }
