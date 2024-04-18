@@ -4,7 +4,7 @@ public class Livro {
     private String codigo;
     private String titulo;
     private String[] autores;
-    private String isbn;
+    public String isbn;
     private int ano;
 
     public Livro(String codigo, String titulo, String[] autores, String isbn, int ano) {
@@ -29,14 +29,6 @@ public class Livro {
 
     public void setTitulo(String titulo) {
         this.titulo = titulo;
-    }
-
-    public String getIsbn() {
-        return isbn;
-    }
-
-    public void getIsbn(String isbn) {
-        this.isbn = isbn;
     }
 
     public String[] getAutores() {
