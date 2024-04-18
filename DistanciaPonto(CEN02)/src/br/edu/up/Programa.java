@@ -9,7 +9,7 @@ public class Programa {
 
     }
 
-    public static void salveGuys() {
+    public void salveGuys() {
         System.out.println("nada nao");
     }
 }
