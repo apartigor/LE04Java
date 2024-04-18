@@ -1,16 +1,10 @@
 package br.edu.up;
-import java.lang.Math;
 
+import java.lang.Math;
 import br.edu.up.modelos.Ponto;
 
 public class Programa {
     public static void main(String[] args) {
         Ponto p1 = new Ponto(0, 0);
-
-
-
-        Livro livro01 = new Livro("1598FHK", "Core Java 2",
-                new String[] { "Cay S. Horstmann", "Gary Cornell" },
-                "0130819336", 2005);
     }
 }
