@@ -31,6 +31,14 @@ public class Livro {
         this.titulo = titulo;
     }
 
+    public String getIsbn() {
+        return isbn;
+    }
+
+    public void getIsbn(String isbn) {
+        this.isbn = isbn;
+    }
+
     public String[] getAutores() {
         return autores;
     }
@@ -46,5 +54,8 @@ public class Livro {
     public void setAno(int ano) {
         this.ano = ano;
     }
+
+    
+
 
 }
