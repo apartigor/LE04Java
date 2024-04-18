@@ -29,7 +29,7 @@ public class Ponto {
     }
 
     public double calcularDistancia(double x, double y, Ponto p) {
-        return calc;
+        return Math.sqrt(Math.pow((p), 2) + Math.pow((p), 2));
     }
 
 }

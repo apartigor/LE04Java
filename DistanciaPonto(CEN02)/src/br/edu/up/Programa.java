@@ -6,15 +6,11 @@ import br.edu.up.modelos.Ponto;
 public class Programa {
     public static void main(String[] args) {
         Ponto p1 = new Ponto(0, 0);
+        Ponto p2 = new Ponto(2, 5);
 
-    }
+        Ponto.calcularDistancia(p1, p2);
 
-    public void salveGuys() {
-        System.out.println("nada nao");
+        System.out.println();
 
-        
-    }
-    public static void salve() {
-        System.out.println("teste 12345678");
     }
 }
