@@ -7,6 +7,11 @@ public class Programa {
     public static void main(String[] args) {
         Ponto p1 = new Ponto(0, 0);
 
+    }
+
+    public static void salveGuys() {
+        System.out.println("nada nao");
+
         
     }
     public static void salve() {
