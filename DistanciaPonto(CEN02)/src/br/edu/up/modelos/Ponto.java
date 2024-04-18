@@ -5,6 +5,7 @@ import java.lang.Math;
 public class Ponto {
     private double x;
     private double y;
+    private double calc;
 
     public Ponto(double x, double y) {
         this.x = x;
@@ -28,7 +29,7 @@ public class Ponto {
     }
 
     public double calcularDistancia(double x, double y, Ponto p) {
-        return;
+        return calc;
     }
 
 }
