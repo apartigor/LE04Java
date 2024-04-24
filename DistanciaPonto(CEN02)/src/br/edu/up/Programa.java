@@ -18,9 +18,12 @@ public class Programa {
         System.out.printf("\nDistância do Ponto 2 às coordenadas (7,2): %.3f", distp2p3);
 
         ponto1.setX(10);
+        ponto1.setY(3);
 
-        System.out.printf("\nPonto 1 alterado para as coordenadas: (%.1f, %.1f)", ponto1.getX(), ponto1.getY());
+        System.out.printf("\nPonto 1 alterado para as coordenadas: (X = %.1f / Y = %.1f)", ponto1.getX(), ponto1.getY());
         
+
+
 
     }
 }
