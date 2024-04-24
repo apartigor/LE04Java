@@ -36,4 +36,5 @@ public class Ponto {
         double distanciaY = outroPonto.getY() - this.y;
         return Math.sqrt(Math.pow(distanciaX, 2) + Math.pow(distanciaY, 2));
     }
+
 }
