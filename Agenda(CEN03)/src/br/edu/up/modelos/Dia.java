@@ -4,10 +4,9 @@ public class Dia {
     private int diaMes;
     private Compromisso[] compromissos;
 
-
     public Dia(int diaMes) {
         this.diaMes = diaMes;
-
+        this.compromissos = new Compromisso[24];
     }
 
     public void adicionarCompromisso(Compromisso comp) {
@@ -15,17 +14,15 @@ public class Dia {
     }
 
     public Compromisso consultarCompromisso(int hora) {
-        
-        return;
+        return null;
     }
 
     public void excluirCompromisso(int hora) {
-        
+
     }
 
     public String listarCompromisso() {
-
-        return;
+        return null;
     }
 
 }

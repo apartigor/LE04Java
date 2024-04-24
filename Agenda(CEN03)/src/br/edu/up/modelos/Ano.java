@@ -8,10 +8,10 @@ public class Ano {
     public Ano(int ano, boolean bissexto) {
         this.ano = ano;
         this.bissexto = bissexto;
+        this.meses = new Mes[12];
     }
 
     public void adicionarMes(Mes mes) {
-
     }
 
     public void excluirCompromisso(String nomeMes, int diaMes, int hora) {
@@ -19,11 +19,11 @@ public class Ano {
     }
 
     public String listarCompromissos(String nomeMes) {
-        return;
+        return null;
     }
 
     public String listarCompromissos() {
-        return;
-    }
 
+        return null;
+    }
 }

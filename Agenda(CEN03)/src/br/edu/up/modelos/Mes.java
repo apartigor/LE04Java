@@ -1,18 +1,27 @@
 package br.edu.up.modelos;
 
 public class Mes {
-    private int nome;
+    private String nome;
     private int qtdeDias;
-    private Dia[]dias;
+    private Dia[] dias;
 
-    public Mes(int nome, int qtdeDias) {
+    public Mes(String nome, int qtdeDias) {
         this.nome = nome;
         this.qtdeDias = qtdeDias;
+        this.dias = new Dia[qtdeDias];
     }
 
-    public void adicionarCompromisso(Compromisso comp, Dia[]dias) {
-
+    public String getNome() {
+        return nome;
     }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void adicionarCompromisso(Compromisso comp, int diaMes) {
+    }
+
     public void adicionarCompromisso(String pessoa, String local, String assunto, int hora, int diaMes) {
 
     }
@@ -22,10 +31,11 @@ public class Mes {
     }
 
     public String listarCompromisso(int diaMes) {
-        return;
+        return null;
     }
 
     public String listarCompromisso() {
-        return;
+        return null;
     }
+
 }
