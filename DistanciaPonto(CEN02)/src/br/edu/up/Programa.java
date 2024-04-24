@@ -22,9 +22,6 @@ public class Programa {
 
         System.out.printf("\nPonto 1 alterado para as coordenadas: (X = %.1f / Y = %.1f)", ponto1.getX(), ponto1.getY());
         
-
-
-
     }
 }
 

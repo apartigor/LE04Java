@@ -31,9 +31,9 @@ public class Ponto {
         this.y = y;
     }
 
-    public double calcularDistancia(Ponto outroPonto) {
-        double distanciaX = outroPonto.getX() - this.x;
-        double distanciaY = outroPonto.getY() - this.y;
+    public double calcularDistancia(Ponto p) {
+        double distanciaX = p.getX() - this.x;
+        double distanciaY = p.getY() - this.y;
         return Math.sqrt(Math.pow(distanciaX, 2) + Math.pow(distanciaY, 2));
     }
 
