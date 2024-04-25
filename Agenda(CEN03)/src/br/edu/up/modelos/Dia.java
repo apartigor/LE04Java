@@ -18,11 +18,7 @@ public class Dia {
     }
 
     public void excluirCompromisso(int hora) {
-        
+        compromissos[hora] = null;
     }
 
-    public String listarCompromisso() {
-
-        return;
-    }
 }
