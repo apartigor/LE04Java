@@ -10,13 +10,13 @@ public class Programa {
     public static void main(String[] args) {
         EstacionamentoController controller = new EstacionamentoController();
         EstacionamentoTela view = new EstacionamentoTela();
-        Scanner ler = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
 
         int opcao;
         do {
             view.menu();
             System.out.print("Escolha uma opção: ");
-            opcao = ler.nextInt();
+            opcao = sc.nextInt();
             switch (opcao) {
                 case 1:
                     Carro carroEntrada = view.receberDadosCarro();

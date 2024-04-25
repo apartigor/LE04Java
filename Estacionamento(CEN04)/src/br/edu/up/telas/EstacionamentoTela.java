@@ -14,21 +14,21 @@ public class EstacionamentoTela {
     }
 
     public Carro receberDadosCarro() {
-        Scanner ler = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         System.out.println("\nInforme os dados do carro:");
         System.out.print("Modelo: ");
-        String modelo = ler.nextLine();
+        String modelo = sc.nextLine();
         System.out.print("Placa: ");
-        String placa = ler.nextLine();
+        String placa = sc.nextLine();
         System.out.print("Cor: ");
-        String cor = ler.nextLine();
+        String cor = sc.nextLine();
         return new Carro(modelo, placa, cor);
     }
 
     public String receberPlaca() {
-        Scanner ler = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         System.out.println("\nInforme a placa do carro:");
-        return ler.nextLine();
+        return sc.nextLine();
     }
 
     public void mostrarMensagem(String mensagem) {
