@@ -45,4 +45,8 @@ public class Compromisso {
         this.hora = hora;
     }
 
+    @Override
+    public String toString() {
+        return "Pessoa: " + pessoa + ", Local: " + local + ", Assunto: " + assunto + ", Hora: " + hora;
+    }
 }

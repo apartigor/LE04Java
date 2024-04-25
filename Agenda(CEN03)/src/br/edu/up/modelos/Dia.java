@@ -1,31 +1,23 @@
 package br.edu.up.modelos;
 
 public class Dia {
-    private int diaMes;
+    private int dia;
     private Compromisso[] compromissos;
 
-
-    public Dia(int diaMes) {
-        this.diaMes = diaMes;
-
+    public Dia(int dia) {
+        this.dia = dia;
+        compromissos = new Compromisso[24];
     }
 
-    public void adicionarCompromisso(Compromisso comp) {
-
+    public Compromisso[] getCompromissos() {
+        return compromissos;
     }
 
-    public Compromisso consultarCompromisso(int hora) {
-        
-        return;
+    public void adicionarCompromisso(Compromisso comp, int hora) {
+        compromissos[hora] = comp;
     }
 
     public void excluirCompromisso(int hora) {
-        
+        compromissos[hora] = null;
     }
-
-    public String listarCompromisso() {
-
-        return;
-    }
-
 }
