@@ -1,13 +1,29 @@
 package br.edu.up.modelos;
 
-public class Tripulacao {
-    private String idiomas;
+public class Tripulacao extends Pessoa {
+    String identificacaoAeronautica;
+    String matricula;
 
-    public String getIdiomas() {
-        return idiomas;
+    public Tripulacao(String nome, String rg, String identificacaoAeronautica, String matricula) {
+        super(nome, rg);
+        this.identificacaoAeronautica = identificacaoAeronautica;
+        this.matricula = matricula;
     }
 
-    public void setIdiomas(String idiomas) {
-        this.idiomas = idiomas;
+    public String getIdentificacaoAeronautica() {
+        return identificacaoAeronautica;
     }
+
+    public void setIdentificacaoAeronautica(String identificacaoAeronautica) {
+        this.identificacaoAeronautica = identificacaoAeronautica;
+    }
+
+    public String getMatricula() {
+        return matricula;
+    }
+
+    public void setMatricula(String matricula) {
+        this.matricula = matricula;
+    }
+
 }
