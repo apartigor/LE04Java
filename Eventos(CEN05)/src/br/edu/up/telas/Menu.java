@@ -1,6 +1,8 @@
 package br.edu.up.telas;
 
 import java.util.Scanner;
+import br.edu.up.modelos.*;
+
 
 public class Menu {
     Scanner ler = new Scanner(System.in);
@@ -23,10 +25,9 @@ public class Menu {
                     break;
                 case 2:
                     // Listar eventos
-                    System.out.println("ola");
                     break;
                 case 3:
-                    // Realizar reserva0
+                    // Realizar reserva
                     break;
                 case 4:
                     // Listar reservas
