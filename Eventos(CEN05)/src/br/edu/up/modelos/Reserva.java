@@ -1,12 +1,12 @@
 package br.edu.up.modelos;
 
-public class Reseva {
+public class Reserva {
     private String nomeResponsavel;
     private int qtdePessoas;
     private String dataReserva;
     private double valorTotal;
 
-    public Reseva(String nomeResponsavel, int qtdePessoas, String dataReserva, double valorTotal) {
+    public Reserva(String nomeResponsavel, int qtdePessoas, String dataReserva, double valorTotal) {
         this.nomeResponsavel = nomeResponsavel;
         this.qtdePessoas = qtdePessoas;
         this.dataReserva = dataReserva;
