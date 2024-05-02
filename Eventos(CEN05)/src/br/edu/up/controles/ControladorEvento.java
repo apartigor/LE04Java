@@ -12,11 +12,11 @@ public class ControladorEvento {
 
     public void adicionarEvento() {
         System.out.println("Nome do evento:");
-        String nome = ler.next();
+        String nome = ler.nextLine();
         System.out.println("Data do evento:");
-        String dataEvento = ler.next();
+        String dataEvento = ler.nextLine();
         System.out.println("Local do evento:");
-        String local = ler.next();
+        String local = ler.nextLine();
         System.out.println("Lotação máxima do evento:");
         int lotacaoMax = ler.nextInt();
         System.out.println("Preço do ingresso:");
@@ -31,16 +31,23 @@ public class ControladorEvento {
         if (eventos.isEmpty()) {
             System.out.println("Não há eventos cadastrados.");
         } else {
-            System.out.println("----- Eventos Cadastrados -----\n");
-            for (Evento evento : eventos) {
-                System.out.println("Nome: " + evento.getNome());
-                System.out.println("Data do Evento: " + evento.getdataEvento());
-                System.out.println("Local: " + evento.getLocal());
-                System.out.println("Lotação Máxima: " + evento.getLotacaoMax());
-                System.out.println("Ingressos Vendidos: " + evento.getQtdeIngressosVendidos());
-                System.out.println("Preço do Ingresso: " + evento.getPrecoIngresso());
-                System.out.println("--------------------------------\n");
+            System.out.println("----- Eventos Disponíveis -----\n");
+            for (int i = 0; i < eventos.size(); i++) {
+                Evento evento = eventos.get(i);
+                System.out.println((i + 1) + ". " + evento.getNome());
             }
+            System.out.println("--------------------------------\n");
         }
+    }
+
+    public Evento selecionarEvento(int numeroEvento) {
+        if (numeroEvento < 1 || numeroEvento > eventos.size()) {
+            return null;
+        }
+        return eventos.get(numeroEvento - 1);
+    }
+
+    public boolean venderIngressos(Evento evento, int qtdeIngressos) {
+        return evento.venderIngressos(qtdeIngressos);
     }
 }

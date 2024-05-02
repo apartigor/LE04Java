@@ -1,5 +1,6 @@
 package br.edu.up.modelos;
 
+
 public class Evento {
     private String nome;
     private String dataEvento;
@@ -64,6 +65,17 @@ public class Evento {
 
     public void setPrecoIngresso(double precoIngresso) {
         this.precoIngresso = precoIngresso;
+    }
+
+    public boolean venderIngressos(int qtdeIngressos) {
+        if (qtdeIngressos + qtdeIngressosVendidos > lotacaoMax) {
+            System.out.println("Não é possível vender mais ingressos, lotação máxima atingida.");
+            return false;
+        } else {
+            qtdeIngressosVendidos += qtdeIngressos;
+            System.out.println("Ingressos vendidos com sucesso.");
+            return true;
+        }
     }
 
 }

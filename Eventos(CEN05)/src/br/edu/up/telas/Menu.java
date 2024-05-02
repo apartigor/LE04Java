@@ -1,16 +1,14 @@
 package br.edu.up.telas;
 
 import java.util.Scanner;
-
-import br.edu.up.controles.ControladorEvento;
+import br.edu.up.controles.*;
 import br.edu.up.modelos.*;
-
 
 public class Menu {
     Scanner ler = new Scanner(System.in);
 
     ControladorEvento controladorEvento = new ControladorEvento();
-
+    ControladorReserva controladorReserva = new ControladorReserva();
 
     public void exibirMenu() {
         int opcao;
@@ -18,7 +16,7 @@ public class Menu {
             System.out.println("----- Menu -----\n");
             System.out.println("1. Adicionar Evento");
             System.out.println("2. Listar Eventos");
-            System.out.println("3. Fazer Reseva");
+            System.out.println("3. Fazer Reserva");
             System.out.println("4. Listar Reservas");
             System.out.println("5. Sair");
             System.out.print("Escolha uma opção: ");
@@ -32,10 +30,18 @@ public class Menu {
                     controladorEvento.listarEventos();
                     break;
                 case 3:
-                    // Realizar reserva
+                    controladorEvento.listarEventos();
+                    System.out.print("Escolha o evento (pelo número): ");
+                    int numeroEvento = ler.nextInt();
+                    Evento eventoSelecionado = controladorEvento.selecionarEvento(numeroEvento);
+                    if (eventoSelecionado != null) {
+                        controladorReserva.fazerReserva(eventoSelecionado);
+                    } else {
+                        System.out.println("Evento não encontrado.");
+                    }
                     break;
                 case 4:
-                    // Listar reservas
+                    controladorReserva.listarReservas();
                     break;
                 case 5:
                     System.out.println("Saindo...");
