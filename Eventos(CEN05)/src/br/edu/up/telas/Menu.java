@@ -1,11 +1,16 @@
 package br.edu.up.telas;
 
 import java.util.Scanner;
+
+import br.edu.up.controles.ControladorEvento;
 import br.edu.up.modelos.*;
 
 
 public class Menu {
     Scanner ler = new Scanner(System.in);
+
+    ControladorEvento controladorEvento = new ControladorEvento();
+
 
     public void exibirMenu() {
         int opcao;
@@ -21,10 +26,10 @@ public class Menu {
 
             switch (opcao) {
                 case 1:
-                    // Adicionar evento
+                    controladorEvento.adicionarEvento();
                     break;
                 case 2:
-                    // Listar eventos
+                    controladorEvento.listarEventos();
                     break;
                 case 3:
                     // Realizar reserva

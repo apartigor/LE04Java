@@ -13,6 +13,8 @@ public class Reserva {
         this.valorTotal = valorTotal;
     }
 
+
+
     public String getNomeResponsavel() {
         return nomeResponsavel;
     }
@@ -48,3 +50,5 @@ public class Reserva {
     
 
 }
+
+
