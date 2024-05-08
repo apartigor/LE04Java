@@ -3,8 +3,9 @@ package br.edu.up.modelos;
 public class Comandante extends Tripulacao {
     int totalHorasVoo;
 
-    public Comandante(String nome, String rg, String identificacaoAeronautica, String matricula, int totalHorasVoo) {
-        super(nome, rg, identificacaoAeronautica, matricula);
+    public Comandante(String nome, String rg, String identificacaoAeronautica, String matricula, Passagem passagem,
+            Aeronave aeronave, int totalHorasVoo) {
+        super(nome, rg, identificacaoAeronautica, matricula, passagem, aeronave);
         this.totalHorasVoo = totalHorasVoo;
     }
 
