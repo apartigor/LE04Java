@@ -1,8 +1,6 @@
 package br.edu.up.controles;
 
-import br.edu.up.modelos.Passageiro;
-import br.edu.up.modelos.Passagem;
-import br.edu.up.modelos.Aeronave;
+import br.edu.up.modelos.*;
 
 public class ControladorPassageiro {
 }
