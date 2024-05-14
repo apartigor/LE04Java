@@ -47,4 +47,12 @@ public class Tripulacao extends Pessoa {
         this.aeronave = aeronave;
     }
 
+    public String getRg() {
+        return this.rg = rg;
+    }
+
+    public String getNome() {
+        return this.nome = nome;
+    }
+
 }
