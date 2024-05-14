@@ -1,25 +1,40 @@
 package br.edu.up.controles;
 
-import java.util.Scanner;
+import br.edu.up.modelos.Professor;
+import br.edu.up.modelos.Titulacao;
 
-import br.edu.up.modelos.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ProfessorController {
+    private List<Professor> professores;
 
-    private static void cadastrarProfessor() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("=== Cadastro de Professor ===");
-        System.out.print("Nome: ");
-        String nome = scanner.next();
-        System.out.print("RG: ");
-        String rg = scanner.next();
-        System.out.print("Matrícula: ");
-        String matricula = scanner.next();
-        System.out.print("Lattes ID: ");
-        String lattesID = scanner.next();
-
-        Titulacao titulacao = new Titulacao();
-
+    public ProfessorController() {
+        this.professores = new ArrayList<>();
     }
 
+    public void cadastrarProfessor(Professor professor) {
+        professores.add(professor);
+        System.out.println("Professor cadastrado com sucesso!");
+    }
+
+    public void listarProfessores() {
+        if (professores.isEmpty()) {
+            System.out.println("Nenhum professor cadastrado.");
+        } else {
+            System.out.println("=== Lista de Professores ===");
+            for (Professor professor : professores) {
+                System.out.println("Nome: " + professor.getNome());
+                System.out.println("RG: " + professor.getRg());
+                System.out.println("Matrícula: " + professor.getMatricula());
+                System.out.println("Lattes ID: " + professor.getLattesID());
+                Titulacao titulacao = professor.getTitulacao();
+                System.out.println("Titulação: " + titulacao.getTituloObtido() +
+                        " em " + titulacao.getAnoConclusao() +
+                        " pela instituição " + titulacao.getInstituicao() +
+                        " (TCC: " + titulacao.getTituloTrabalho() + ")");
+                System.out.println("------------------------");
+            }
+        }
+    }
 }
