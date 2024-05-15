@@ -1,8 +1,13 @@
 package br.edu.up.modelos;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 public class Disciplina {
@@ -80,5 +85,4 @@ public class Disciplina {
     public Map<Aluno, Map<Competencia, Competencia.SituacaoCompetencia>> getSituacaoAlunos() {
         return situacaoAlunos;
     }
-
 }

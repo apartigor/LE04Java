@@ -2,7 +2,6 @@ package br.edu.up.controles;
 
 import br.edu.up.modelos.Professor;
 import br.edu.up.modelos.Titulacao;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,7 +22,9 @@ public class ProfessorController {
             System.out.println("Nenhum professor cadastrado.");
         } else {
             System.out.println("=== Lista de Professores ===");
-            for (Professor professor : professores) {
+            for (int i = 0; i < professores.size(); i++) {
+                Professor professor = professores.get(i);
+                System.out.println("ID: " + i);
                 System.out.println("Nome: " + professor.getNome());
                 System.out.println("RG: " + professor.getRg());
                 System.out.println("Matrícula: " + professor.getMatricula());
@@ -36,5 +37,12 @@ public class ProfessorController {
                 System.out.println("------------------------");
             }
         }
+    }
+
+    public Professor buscarProfessorPorId(int id) {
+        if (id >= 0 && id < professores.size()) {
+            return professores.get(id);
+        }
+        return null;
     }
 }

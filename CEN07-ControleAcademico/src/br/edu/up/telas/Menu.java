@@ -1,23 +1,25 @@
-package br.edu.up.tela;
+package br.edu.up.telas;
 
 import br.edu.up.modelos.*;
 import br.edu.up.controles.*;
 import java.util.Scanner;
 
 public class Menu {
-    ProfessorController professorController = new ProfessorController();
-    AlunoController alunoController = new AlunoController();
-    DisciplinaController disciplinaController = new DisciplinaController();
+    private AlunoController alunoController;
+    private ProfessorController professorController;
+    private DisciplinaController disciplinaController;
 
-    private Scanner scanner = new Scanner(System.in);
+    private Scanner scanner;
 
     public Menu() {
-        this.scanner = new Scanner(System.in);
+        alunoController = new AlunoController();
+        professorController = new ProfessorController();
+        disciplinaController = new DisciplinaController();
+        scanner = new Scanner(System.in);
     }
 
-    int opcao;
-
     public void exibirMenuPrincipal() {
+        int opcao;
         do {
             System.out.println("=== Menu Principal ===");
             System.out.println("1. Cadastros");
@@ -43,6 +45,7 @@ public class Menu {
     }
 
     public void exibirMenuCadastro() {
+        int opcao;
         do {
             System.out.println("=== Menu de Cadastros ===");
             System.out.println("1. Cadastrar Professor");
@@ -63,7 +66,6 @@ public class Menu {
                     cadastrarDisciplina();
                     break;
                 case 0:
-                    exibirMenuPrincipal();
                     break;
                 default:
                     System.out.println("Opção inválida! Tente novamente.");
@@ -72,12 +74,12 @@ public class Menu {
     }
 
     public void exibirMenuListagem() {
+        int opcao;
         do {
             System.out.println("=== Menu de Listagem ===");
             System.out.println("1. Listar Professores");
             System.out.println("2. Listar Alunos");
             System.out.println("3. Listar Disciplinas");
-            System.out.println("4. Verificar Situação");
             System.out.println("0. Voltar ao Menu Principal");
             System.out.print("Escolha uma opção: ");
             opcao = scanner.nextInt();
@@ -92,11 +94,7 @@ public class Menu {
                 case 3:
                     disciplinaController.listarDisciplinas();
                     break;
-                case 4:
-                    verificarSituacaoAluno();
-                    break;
-                case 0: 
-                    exibirMenuPrincipal();
+                case 0:
                     break;
                 default:
                     System.out.println("Opção inválida! Tente novamente.");
@@ -114,6 +112,7 @@ public class Menu {
         scanner.nextLine();
         System.out.print("Matrícula: ");
         String matricula = scanner.next();
+        scanner.nextLine();
         System.out.print("Lattes ID: ");
         String lattesID = scanner.next();
         System.out.print("Instituição de Titulação: ");
@@ -134,7 +133,7 @@ public class Menu {
     public void cadastrarAluno() {
         System.out.println("=== Cadastro de Aluno ===");
         System.out.print("Nome: ");
-        scanner.nextLine();
+        scanner.nextLine(); 
         String nome = scanner.nextLine();
         System.out.print("RG: ");
         String rg = scanner.next();
@@ -143,11 +142,9 @@ public class Menu {
         String matricula = scanner.next();
         scanner.nextLine();
         System.out.print("Curso: ");
-        String curso = scanner.next();
-        scanner.nextLine();
+        String curso = scanner.nextLine();
         System.out.print("Turno: ");
         String turno = scanner.next();
-        scanner.nextLine();
         System.out.print("Ano de Ingresso: ");
         int anoIngresso = scanner.nextInt();
 
@@ -156,55 +153,34 @@ public class Menu {
         alunoController.cadastrarAluno(aluno);
     }
 
-    public void verificarSituacaoAluno() {
-        System.out.println("=== Verificar Situação do Aluno ===");
-        System.out.print("Matrícula do Aluno: ");
-        String matricula = scanner.next();
-        
-        Aluno aluno = alunoController.buscarAlunoPorMatricula(matricula);
-        
-        if (aluno == null) {
-            System.out.println("Aluno não encontrado.");
-            return;
-        }
-    
-        Aluno.SituacaoAluno situacao = aluno.calcularSituacao();
-        switch (situacao) {
-            case APROVADO:
-                System.out.println("Situação: Aprovado");
-                break;
-            case REPROVADO:
-                System.out.println("Situação: Reprovado");
-                break;
-            case PENDENTE:
-                System.out.println("Situação: Pendente");
-                break;
-            default:
-                System.out.println("Situação desconhecida");
-        }
-    }
-
     public void cadastrarDisciplina() {
         System.out.println("=== Cadastro de Disciplina ===");
         System.out.print("Nome: ");
-        scanner.nextLine();
+        scanner.nextLine(); 
         String nome = scanner.nextLine();
         System.out.print("Identificador: ");
         String identificador = scanner.next();
+        scanner.nextLine();
         System.out.print("Currículo: ");
-        String curriculo = scanner.next();
+        String curriculo = scanner.nextLine();
 
-        // Aqui seria necessário selecionar um professor e adicionar alunos e
-        // competências,
-        // como estamos apenas exemplificando, deixaremos esse processo de seleção
-        // manual.
-        Professor professor = new Professor("João", "123456", "M123", "123",
-                new Titulacao("Universidade", 2020, "Bacharel", "TCC"));
+        System.out.println("=== Professores cadastrados ===");
+        professorController.listarProfessores();
+
+        System.out.print("Selecione o ID do professor: ");
+        int idProfessor = scanner.nextInt();
+        Professor professorSelecionado = professorController.buscarProfessorPorId(idProfessor);
+
+        if (professorSelecionado == null) {
+            System.out.println("Professor não encontrado.");
+            return;
+        }
+
         Disciplina disciplina = new Disciplina();
         disciplina.setNome(nome);
         disciplina.setIdentificador(identificador);
         disciplina.setCurriculo(curriculo);
-        disciplina.setProfessor(professor);
+        disciplina.setProfessor(professorSelecionado);
 
         disciplinaController.cadastrarDisciplina(disciplina);
     }

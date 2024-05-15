@@ -1,6 +1,6 @@
 package br.edu.up.controles;
 
-import br.edu.up.modelos.Aluno;
+import br.edu.up.modelos.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,14 +33,4 @@ public class AlunoController {
             }
         }
     }
-    
-    public Aluno buscarAlunoPorMatricula(String matricula) {
-        for (Aluno aluno : alunos) {
-            if (aluno.getMatricula().equals(matricula)) {
-                return aluno;
-            }
-        }
-        return null;
-    }
-
 }
