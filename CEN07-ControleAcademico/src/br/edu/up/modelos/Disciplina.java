@@ -1,26 +1,23 @@
 package br.edu.up.modelos;
-
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
 
 public class Disciplina {
     private String nome;
     private String identificador;
     private String curriculo;
+    private ArrayList<String> competenciasNecessarias;
+    private ArrayList<String> competenciasComplementares;
     private Professor professor;
-    private List<Aluno> alunos;
-    private Set<Competencia> competencias;
-    private Map<Aluno, Map<Competencia, Competencia.SituacaoCompetencia>> situacaoAlunos;
+    private ArrayList<Aluno> alunosMatriculados;
 
-    public Disciplina() {
-        situacaoAlunos = new HashMap<>();
+    public Disciplina(String nome, String identificador, String curriculo, Professor professor) {
+        this.nome = nome;
+        this.identificador = identificador;
+        this.curriculo = curriculo;
+        this.professor = professor;
+        this.competenciasNecessarias = new ArrayList<>();
+        this.competenciasComplementares = new ArrayList<>();
+        this.alunosMatriculados = new ArrayList<>();
     }
 
     public String getNome() {
@@ -47,6 +44,22 @@ public class Disciplina {
         this.curriculo = curriculo;
     }
 
+    public ArrayList<String> getCompetenciasNecessarias() {
+        return competenciasNecessarias;
+    }
+
+    public void adicionarCompetenciaNecessaria(String competencia) {
+        this.competenciasNecessarias.add(competencia);
+    }
+
+    public ArrayList<String> getCompetenciasComplementares() {
+        return competenciasComplementares;
+    }
+
+    public void adicionarCompetenciaComplementar(String competencia) {
+        this.competenciasComplementares.add(competencia);
+    }
+
     public Professor getProfessor() {
         return professor;
     }
@@ -55,34 +68,16 @@ public class Disciplina {
         this.professor = professor;
     }
 
-    public List<Aluno> getAlunos() {
-        return alunos;
-    }
-
-    public void setAlunos(List<Aluno> alunos) {
-        this.alunos = alunos;
-    }
-
-    public Set<Competencia> getCompetencias() {
-        return competencias;
-    }
-
-    public void setCompetencias(Set<Competencia> competencias) {
-        this.competencias = competencias;
+    public ArrayList<Aluno> getAlunosMatriculados() {
+        return alunosMatriculados;
     }
 
     public void matricularAluno(Aluno aluno) {
-        situacaoAlunos.put(aluno, new HashMap<>());
+        this.alunosMatriculados.add(aluno);
     }
 
-    public void registrarSituacaoAluno(Aluno aluno, Competencia competencia, Competencia.SituacaoCompetencia situacao) {
-        Map<Competencia, Competencia.SituacaoCompetencia> situacoes = situacaoAlunos.get(aluno);
-        if (situacoes != null) {
-            situacoes.put(competencia, situacao);
-        }
-    }
-
-    public Map<Aluno, Map<Competencia, Competencia.SituacaoCompetencia>> getSituacaoAlunos() {
-        return situacaoAlunos;
+    public void avaliarAluno(Aluno aluno) {
+        String situacao = aluno.avaliarCompetencias(this);
+        System.out.println("Aluno: " + aluno.getNome() + " - Situação: " + situacao);
     }
 }

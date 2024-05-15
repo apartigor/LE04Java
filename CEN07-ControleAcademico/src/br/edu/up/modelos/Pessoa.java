@@ -1,6 +1,6 @@
 package br.edu.up.modelos;
 
-public class Pessoa {
+public abstract class Pessoa {
     private String nome;
     private String rg;
     private String matricula;
@@ -34,5 +34,4 @@ public class Pessoa {
     public void setMatricula(String matricula) {
         this.matricula = matricula;
     }
-
 }
