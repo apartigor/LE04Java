@@ -85,14 +85,14 @@ public class VisaoAcademica {
         String instituicao = scanner.nextLine();
         System.out.print("Ano de conclusão: ");
         int anoConclusao = scanner.nextInt();
-        scanner.nextLine(); // Consumir a nova linha
+        scanner.nextLine();
         System.out.print("Título do trabalho: ");
         String tituloTrabalho = scanner.nextLine();
         return new Professor(nome, rg, matricula, idLattes, titulacao, instituicao, anoConclusao, tituloTrabalho);
     }
 
     public Disciplina lerDadosDisciplina(Professor professor) {
-        scanner.nextLine(); // Consumir a nova linha
+        scanner.nextLine();
         System.out.print("Nome: ");
         String nome = scanner.nextLine();
         System.out.print("Identificador: ");
