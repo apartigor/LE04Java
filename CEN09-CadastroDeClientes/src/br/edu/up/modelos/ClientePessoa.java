@@ -12,7 +12,7 @@ public class ClientePessoa extends Cliente {
         this.altura = altura;
     }
 
-    // Getters e Setters
+
 
     public String getCPF() {
         return CPF;

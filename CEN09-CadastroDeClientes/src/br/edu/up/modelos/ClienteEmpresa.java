@@ -13,7 +13,6 @@ public class ClienteEmpresa extends Cliente {
         this.anoFundacao = anoFundacao;
     }
 
-    // Getters e Setters
 
     public String getCnpj() {
         return cnpj;

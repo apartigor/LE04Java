@@ -15,7 +15,6 @@ public class Endereco {
         this.cidade = cidade;
     }
 
-    // Getters e Setters
 
     public String getRua() {
         return rua;

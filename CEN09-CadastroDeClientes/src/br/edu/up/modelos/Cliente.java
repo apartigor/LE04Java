@@ -1,6 +1,5 @@
 package br.edu.up.modelos;
-import br.edu.up.modelos.*;
-import br.edu.up.controles.*;
+
 
 public abstract class Cliente {
     private String nome;
@@ -19,7 +18,7 @@ public abstract class Cliente {
         this.vlrEmprestado = 0.0;
     }
 
-    // Getters e Setters
+
 
     public String getNome() {
         return nome;

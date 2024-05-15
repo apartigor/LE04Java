@@ -10,7 +10,7 @@ public class Cidade {
         this.UF = UF;
     }
 
-    // Getters e Setters
+
 
     public String getNome() {
         return nome;
