@@ -77,6 +77,7 @@ public class Menu {
             System.out.println("1. Listar Professores");
             System.out.println("2. Listar Alunos");
             System.out.println("3. Listar Disciplinas");
+            System.out.println("4. Verificar Situação");
             System.out.println("0. Voltar ao Menu Principal");
             System.out.print("Escolha uma opção: ");
             opcao = scanner.nextInt();
@@ -90,6 +91,9 @@ public class Menu {
                     break;
                 case 3:
                     disciplinaController.listarDisciplinas();
+                    break;
+                case 4:
+                    verificarSituacaoAluno();
                     break;
                 case 0: 
                     exibirMenuPrincipal();
@@ -150,6 +154,34 @@ public class Menu {
         Aluno aluno = new Aluno(nome, rg, matricula, anoIngresso, curso, turno);
 
         alunoController.cadastrarAluno(aluno);
+    }
+
+    public void verificarSituacaoAluno() {
+        System.out.println("=== Verificar Situação do Aluno ===");
+        System.out.print("Matrícula do Aluno: ");
+        String matricula = scanner.next();
+        
+        Aluno aluno = alunoController.buscarAlunoPorMatricula(matricula);
+        
+        if (aluno == null) {
+            System.out.println("Aluno não encontrado.");
+            return;
+        }
+    
+        Aluno.SituacaoAluno situacao = aluno.calcularSituacao();
+        switch (situacao) {
+            case APROVADO:
+                System.out.println("Situação: Aprovado");
+                break;
+            case REPROVADO:
+                System.out.println("Situação: Reprovado");
+                break;
+            case PENDENTE:
+                System.out.println("Situação: Pendente");
+                break;
+            default:
+                System.out.println("Situação desconhecida");
+        }
     }
 
     public void cadastrarDisciplina() {
