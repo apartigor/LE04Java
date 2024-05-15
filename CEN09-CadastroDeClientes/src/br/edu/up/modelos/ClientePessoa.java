@@ -5,14 +5,13 @@ public class ClientePessoa extends Cliente {
     private double peso;
     private double altura;
 
-    public ClientePessoa(String nome, String telefone, String email, Endereco endereco, double vlrMaxCredito, String CPF, double peso, double altura) {
-        super(nome, telefone, email, endereco, vlrMaxCredito);
+    public ClientePessoa(String nome, String telefone, String email, Endereco endereco, double vlrMaxCredito,
+            String CPF, double peso, double altura, String codigo) {
+        super(nome, telefone, email, endereco, vlrMaxCredito, codigo);
         this.CPF = CPF;
         this.peso = peso;
         this.altura = altura;
     }
-
-    // Getters e Setters
 
     public String getCPF() {
         return CPF;
@@ -45,16 +44,17 @@ public class ClientePessoa extends Cliente {
 
     @Override
     public String toString() {
-        return "ClientePessoa{" +
-                "nome='" + getNome() + '\'' +
-                ", telefone='" + getTelefone() + '\'' +
-                ", email='" + getEmail() + '\'' +
-                ", endereco=" + getEndereco() +
-                ", vlrMaxCredito=" + getVlrMaxCredito() +
-                ", vlrEmprestado=" + getVlrEmprestado() +
-                ", CPF='" + CPF + '\'' +
-                ", peso=" + peso +
-                ", altura=" + altura +
-                '}';
+        return String.format("Cliente Pessoa:\n" +
+                "Nome: %s\n" +
+                "Telefone: %s\n" +
+                "Email: %s\n" +
+                "Endereço: %s\n" +
+                "CPF: %s\n" +
+                "Peso: %.2f\n" +
+                "Altura: %.2f\n" +
+                "Valor Máximo de Crédito: %.2f\n" +
+                "Valor Emprestado: %.2f\n",
+                getNome(), getTelefone(), getEmail(), getEndereco(), getCPF(), getPeso(), getAltura(),
+                getVlrMaxCredito(), getVlrEmprestado());
     }
 }

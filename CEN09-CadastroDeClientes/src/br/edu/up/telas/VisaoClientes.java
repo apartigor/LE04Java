@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 public class VisaoClientes {
     private Scanner scanner;
+    
 
     public VisaoClientes() {
         scanner = new Scanner(System.in);
@@ -53,7 +54,7 @@ public class VisaoClientes {
     }
 
     public ClientePessoa lerDadosClientePessoa() {
-        scanner.nextLine();  // Consumir a nova linha
+        scanner.nextLine();  
         System.out.print("Nome: ");
         String nome = scanner.nextLine();
         System.out.print("Telefone: ");
@@ -67,11 +68,13 @@ public class VisaoClientes {
         double peso = scanner.nextDouble();
         System.out.print("Altura: ");
         double altura = scanner.nextDouble();
-        return new ClientePessoa(nome, telefone, email, endereco, 10000.0, CPF, peso, altura);
+        System.out.print("Código do cliente: ");
+        String codigo = scanner.next();
+        return new ClientePessoa(nome, telefone, email, endereco, 10000.0, CPF, peso, altura, codigo);
     }
 
     public ClienteEmpresa lerDadosClienteEmpresa() {
-        scanner.nextLine();  // Consumir a nova linha
+        scanner.nextLine();  
         System.out.print("Nome: ");
         String nome = scanner.nextLine();
         System.out.print("Telefone: ");
@@ -85,10 +88,13 @@ public class VisaoClientes {
         String inscEstadual = scanner.nextLine();
         System.out.print("Ano de Fundação: ");
         int anoFundacao = scanner.nextInt();
-        return new ClienteEmpresa(nome, telefone, email, endereco, 25000.0, cnpj, inscEstadual, anoFundacao);
+        System.out.print("Código do cliente: ");
+        String codigo = scanner.next();
+        return new ClienteEmpresa(nome, telefone, email, endereco, 25000.0, cnpj, inscEstadual, anoFundacao, codigo);
     }
 
     public Endereco lerEndereco() {
+        scanner.nextLine();
         System.out.print("Rua: ");
         String rua = scanner.nextLine();
         System.out.print("Número: ");
@@ -118,7 +124,7 @@ public class VisaoClientes {
     }
 
     public String lerCodigoCliente() {
-        scanner.nextLine();  // Consumir a nova linha
+        scanner.nextLine();  
         System.out.print("Informe o código do cliente: ");
         return scanner.nextLine();
     }

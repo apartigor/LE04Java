@@ -16,7 +16,7 @@ public class Menu {
         int opcaoSecundaria;
 
         switch (opcaoPrincipal) {
-            case 1: // Incluir
+            case 1:
                 do {
                     visao.exibirMenuIncluir();
                     opcaoSecundaria = visao.lerOpcao();
@@ -41,7 +41,7 @@ public class Menu {
                     }
                 } while (opcaoSecundaria != 3);
                 break;
-            case 2: // Mostrar Dados
+            case 2: 
                 do {
                     visao.exibirMenuMostrarDados();
                     opcaoSecundaria = visao.lerOpcao();
@@ -66,7 +66,7 @@ public class Menu {
                     }
                 } while (opcaoSecundaria != 3);
                 break;
-            case 3: // Empréstimo
+            case 3:
                 do {
                     visao.exibirMenuEmprestimo();
                     opcaoSecundaria = visao.lerOpcao();
@@ -99,7 +99,7 @@ public class Menu {
                     }
                 } while (opcaoSecundaria != 3);
                 break;
-            case 4: // Devolução
+            case 4: 
                 do {
                     visao.exibirMenuDevolucao();
                     opcaoSecundaria = visao.lerOpcao();

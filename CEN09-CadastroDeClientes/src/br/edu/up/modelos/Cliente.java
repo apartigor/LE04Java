@@ -1,6 +1,4 @@
 package br.edu.up.modelos;
-import br.edu.up.modelos.*;
-import br.edu.up.controles.*;
 
 public abstract class Cliente {
     private String nome;
@@ -9,17 +7,25 @@ public abstract class Cliente {
     private Endereco endereco;
     private double vlrMaxCredito;
     private double vlrEmprestado;
+    private String codigo;
 
-    public Cliente(String nome, String telefone, String email, Endereco endereco, double vlrMaxCredito) {
+    public Cliente(String nome, String telefone, String email, Endereco endereco, double vlrMaxCredito, String codigo) {
         this.nome = nome;
         this.telefone = telefone;
         this.email = email;
         this.endereco = endereco;
         this.vlrMaxCredito = vlrMaxCredito;
         this.vlrEmprestado = 0.0;
+        this.codigo = codigo;
     }
 
-    // Getters e Setters
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
+    }
 
     public String getNome() {
         return nome;

@@ -1,19 +1,17 @@
 package br.edu.up.modelos;
 
-
 public class ClienteEmpresa extends Cliente {
     private String cnpj;
     private String inscEstadual;
     private int anoFundacao;
 
-    public ClienteEmpresa(String nome, String telefone, String email, Endereco endereco, double vlrMaxCredito, String cnpj, String inscEstadual, int anoFundacao) {
-        super(nome, telefone, email, endereco, vlrMaxCredito);
+    public ClienteEmpresa(String nome, String telefone, String email, Endereco endereco, double vlrMaxCredito,
+            String cnpj, String inscEstadual, int anoFundacao, String codigo) {
+        super(nome, telefone, email, endereco, vlrMaxCredito, codigo);
         this.cnpj = cnpj;
         this.inscEstadual = inscEstadual;
         this.anoFundacao = anoFundacao;
     }
-
-    // Getters e Setters
 
     public String getCnpj() {
         return cnpj;
@@ -46,16 +44,17 @@ public class ClienteEmpresa extends Cliente {
 
     @Override
     public String toString() {
-        return "ClienteEmpresa{" +
-                "nome='" + getNome() + '\'' +
-                ", telefone='" + getTelefone() + '\'' +
-                ", email='" + getEmail() + '\'' +
-                ", endereco=" + getEndereco() +
-                ", vlrMaxCredito=" + getVlrMaxCredito() +
-                ", vlrEmprestado=" + getVlrEmprestado() +
-                ", cnpj='" + cnpj + '\'' +
-                ", inscEstadual='" + inscEstadual + '\'' +
-                ", anoFundacao=" + anoFundacao +
-                '}';
+        return String.format("Cliente Empresa:\n" +
+                "Nome: %s\n" +
+                "Telefone: %s\n" +
+                "Email: %s\n" +
+                "Endereço: %s\n" +
+                "CNPJ: %s\n" +
+                "Inscrição Estadual: %s\n" +
+                "Ano de Fundação: %d\n" +
+                "Valor Máximo de Crédito: %.2f\n" +
+                "Valor Emprestado: %.2f\n",
+                getNome(), getTelefone(), getEmail(), getEndereco(), getCnpj(), getInscEstadual(), getAnoFundacao(),
+                getVlrMaxCredito(), getVlrEmprestado());
     }
 }
