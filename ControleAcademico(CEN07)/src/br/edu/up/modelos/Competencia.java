@@ -3,12 +3,22 @@ package br.edu.up.modelos;
 public class Competencia {
     private String descricao;
     private SituacaoCompetencia situacao;
+    private TipoCompetencia tipo;
 
-    public Competencia(String descricao, SituacaoCompetencia situacao) {
+    public Competencia(String descricao, TipoCompetencia tipo, SituacaoCompetencia situacao) {
         this.descricao = descricao;
+        this.tipo = tipo;
         this.situacao = situacao;
     }
 
+    public TipoCompetencia getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(TipoCompetencia tipo) {
+        this.tipo = tipo;
+    }
+    
     public String getDescricao() {
         return descricao;
     }
@@ -28,6 +38,11 @@ public class Competencia {
     public enum SituacaoCompetencia {
         ATINGIDA,
         NAO_ATINGIDA
+    }
+
+    public enum TipoCompetencia {
+        NECESSARIA,
+        COMPLEMENTAR
     }
 
 }

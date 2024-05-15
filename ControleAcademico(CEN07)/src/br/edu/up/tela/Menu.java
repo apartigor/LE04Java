@@ -91,7 +91,7 @@ public class Menu {
                 case 3:
                     disciplinaController.listarDisciplinas();
                     break;
-                case 0:
+                case 0: 
                     exibirMenuPrincipal();
                     break;
                 default:

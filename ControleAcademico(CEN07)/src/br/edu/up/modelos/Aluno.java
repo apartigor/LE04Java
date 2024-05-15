@@ -1,6 +1,8 @@
 package br.edu.up.modelos;
 
 import br.edu.up.modelos.*;
+import br.edu.up.modelos.Competencia.*;
+
 import java.util.List;
 
 public class Aluno extends Pessoa {
