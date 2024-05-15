@@ -33,5 +33,14 @@ public class AlunoController {
             }
         }
     }
+    
+    public Aluno buscarAlunoPorMatricula(String matricula) {
+        for (Aluno aluno : alunos) {
+            if (aluno.getMatricula().equals(matricula)) {
+                return aluno;
+            }
+        }
+        return null;
+    }
 
 }
