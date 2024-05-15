@@ -1,17 +1,25 @@
 package br.edu.up.modelos;
+import br.edu.up.modelos.*;
+import br.edu.up.controles.*;
 
 public abstract class Cliente {
     private String nome;
-    private String codigo;
+    private String telefone;
+    private String email;
+    private Endereco endereco;
+    private double vlrMaxCredito;
     private double vlrEmprestado;
-    private double maxCredito;
 
-    public Cliente(String nome, String codigo, double maxCredito) {
+    public Cliente(String nome, String telefone, String email, Endereco endereco, double vlrMaxCredito) {
         this.nome = nome;
-        this.codigo = codigo;
-        this.maxCredito = maxCredito;
+        this.telefone = telefone;
+        this.email = email;
+        this.endereco = endereco;
+        this.vlrMaxCredito = vlrMaxCredito;
         this.vlrEmprestado = 0.0;
     }
+
+    // Getters e Setters
 
     public String getNome() {
         return nome;
@@ -21,24 +29,44 @@ public abstract class Cliente {
         this.nome = nome;
     }
 
-    public String getCodigo() {
-        return codigo;
+    public String getTelefone() {
+        return telefone;
     }
 
-    public void setCodigo(String codigo) {
-        this.codigo = codigo;
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public Endereco getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
+    }
+
+    public double getVlrMaxCredito() {
+        return vlrMaxCredito;
+    }
+
+    public void setVlrMaxCredito(double vlrMaxCredito) {
+        this.vlrMaxCredito = vlrMaxCredito;
     }
 
     public double getVlrEmprestado() {
         return vlrEmprestado;
     }
 
-    public double getMaxCredito() {
-        return maxCredito;
-    }
-
     public boolean emprestar(double valor) {
-        if (vlrEmprestado + valor <= maxCredito) {
+        if (vlrEmprestado + valor <= vlrMaxCredito) {
             vlrEmprestado += valor;
             return true;
         }
@@ -53,5 +81,7 @@ public abstract class Cliente {
         return false;
     }
 
-    public abstract String getTipo();
+    public abstract double getSaldo();
+
+    public abstract String toString();
 }
