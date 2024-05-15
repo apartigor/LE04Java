@@ -1,8 +1,9 @@
-package br.edu.up.controles;
+package br.edu.up.telas;
 
 import br.edu.up.modelos.*;
 import java.util.Scanner;
 import java.util.ArrayList;
+
 
 public class VisaoAcademica {
     private Scanner scanner;
@@ -11,17 +12,32 @@ public class VisaoAcademica {
         scanner = new Scanner(System.in);
     }
 
-    public void exibirMenu() {
+    public void exibirMenuPrincipal() {
         System.out.println("Menu de Controle Acadêmico:");
+        System.out.println("1. Preencher Dados");
+        System.out.println("2. Listar Dados");
+        System.out.println("3. Sair");
+        System.out.print("\n\n\n\n\n");
+    }
+
+    public void exibirMenuPreencherDados() {
+        System.out.println("Preencher Dados:");
         System.out.println("1. Incluir aluno");
         System.out.println("2. Incluir professor");
         System.out.println("3. Incluir disciplina");
-        System.out.println("4. Listar alunos");
-        System.out.println("5. Listar professores");
-        System.out.println("6. Listar disciplinas");
-        System.out.println("7. Matricular aluno em disciplina");
-        System.out.println("8. Avaliar alunos de uma disciplina");
-        System.out.println("9. Sair");
+        System.out.println("4. Matricular aluno em disciplina");
+        System.out.println("5. Avaliar alunos de uma disciplina");
+        System.out.println("6. Voltar");
+        System.out.print("\n\n\n\n\n");
+    }
+
+    public void exibirMenuListarDados() {
+        System.out.println("Listar Dados:");
+        System.out.println("1. Listar alunos");
+        System.out.println("2. Listar professores");
+        System.out.println("3. Listar disciplinas");
+        System.out.println("4. Voltar");
+        System.out.print("\n\n\n\n\n");
     }
 
     public int lerOpcao() {
@@ -30,7 +46,7 @@ public class VisaoAcademica {
     }
 
     public Aluno lerDadosAluno() {
-        scanner.nextLine(); 
+        scanner.nextLine();
         System.out.print("Nome: ");
         String nome = scanner.nextLine();
         System.out.print("RG: ");
@@ -48,7 +64,7 @@ public class VisaoAcademica {
     }
 
     public Professor lerDadosProfessor() {
-        scanner.nextLine();
+        scanner.nextLine(); 
         System.out.print("Nome: ");
         String nome = scanner.nextLine();
         System.out.print("RG: ");
@@ -63,14 +79,14 @@ public class VisaoAcademica {
         String instituicao = scanner.nextLine();
         System.out.print("Ano de conclusão: ");
         int anoConclusao = scanner.nextInt();
-        scanner.nextLine(); 
+        scanner.nextLine();  // Consumir a nova linha
         System.out.print("Título do trabalho: ");
         String tituloTrabalho = scanner.nextLine();
         return new Professor(nome, rg, matricula, idLattes, titulacao, instituicao, anoConclusao, tituloTrabalho);
     }
 
     public Disciplina lerDadosDisciplina(Professor professor) {
-        scanner.nextLine();
+        scanner.nextLine();  // Consumir a nova linha
         System.out.print("Nome: ");
         String nome = scanner.nextLine();
         System.out.print("Identificador: ");
