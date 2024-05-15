@@ -3,7 +3,7 @@ package br.edu.up.telas;
 import br.edu.up.modelos.*;
 import java.util.Scanner;
 import java.util.ArrayList;
-
+import java.util.InputMismatchException;
 
 public class VisaoAcademica {
     private Scanner scanner;
@@ -41,8 +41,14 @@ public class VisaoAcademica {
     }
 
     public int lerOpcao() {
-        System.out.print("Escolha uma opção: ");
-        return scanner.nextInt();
+        try {
+            System.out.print("Escolha uma opção: ");
+            return scanner.nextInt();
+        } catch (InputMismatchException e) {
+            System.out.println("Entrada inválida. Por favor, digite um número.");
+            scanner.nextLine();
+            return lerOpcao();
+        }
     }
 
     public Aluno lerDadosAluno() {
@@ -64,7 +70,7 @@ public class VisaoAcademica {
     }
 
     public Professor lerDadosProfessor() {
-        scanner.nextLine(); 
+        scanner.nextLine();
         System.out.print("Nome: ");
         String nome = scanner.nextLine();
         System.out.print("RG: ");
@@ -79,14 +85,14 @@ public class VisaoAcademica {
         String instituicao = scanner.nextLine();
         System.out.print("Ano de conclusão: ");
         int anoConclusao = scanner.nextInt();
-        scanner.nextLine();  // Consumir a nova linha
+        scanner.nextLine(); // Consumir a nova linha
         System.out.print("Título do trabalho: ");
         String tituloTrabalho = scanner.nextLine();
         return new Professor(nome, rg, matricula, idLattes, titulacao, instituicao, anoConclusao, tituloTrabalho);
     }
 
     public Disciplina lerDadosDisciplina(Professor professor) {
-        scanner.nextLine();  // Consumir a nova linha
+        scanner.nextLine(); // Consumir a nova linha
         System.out.print("Nome: ");
         String nome = scanner.nextLine();
         System.out.print("Identificador: ");
