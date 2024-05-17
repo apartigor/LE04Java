@@ -58,7 +58,7 @@ public class Menu {
     private void adicionarContatoPessoal() {
         System.out.print("Digite o código do contato pessoal: ");
         int codigo = scanner.nextInt();
-        scanner.nextLine(); // Limpar o buffer do scanner
+        scanner.nextLine(); 
         System.out.print("Digite o nome do contato pessoal: ");
         String nome = scanner.nextLine();
         System.out.print("Digite o telefone do contato pessoal: ");
@@ -73,7 +73,7 @@ public class Menu {
     private void adicionarContatoComercial() {
         System.out.print("Digite o código do contato comercial: ");
         int codigo = scanner.nextInt();
-        scanner.nextLine(); // Limpar o buffer do scanner
+        scanner.nextLine(); 
         System.out.print("Digite o nome do contato comercial: ");
         String nome = scanner.nextLine();
         System.out.print("Digite o telefone do contato comercial: ");
