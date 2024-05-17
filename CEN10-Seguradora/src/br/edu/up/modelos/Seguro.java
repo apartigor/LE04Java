@@ -1,39 +1,59 @@
 package br.edu.up.modelos;
 
+import java.time.LocalDate;
+
 public abstract class Seguro {
-    private String numeroApolice;
-    private double valorSeguro;
-    private String nomeSegurado;
+    private String apolice;
+    private Segurado segurado;
+    private double vlrApolice;
+    private LocalDate dtInicio;
+    private LocalDate dtFim;
 
-    public Seguro(String numeroApolice, double valorSeguro, String nomeSegurado) {
-        this.numeroApolice = numeroApolice;
-        this.valorSeguro = valorSeguro;
-        this.nomeSegurado = nomeSegurado;
+    public String getApolice() {
+        return apolice;
     }
 
-    public String getNumeroApolice() {
-        return numeroApolice;
+    public void setApolice(String apolice) {
+        this.apolice = apolice;
     }
 
-    public void setNumeroApolice(String numeroApolice) {
-        this.numeroApolice = numeroApolice;
+    public Segurado getSegurado() {
+        return segurado;
     }
 
-    public double getValorSeguro() {
-        return valorSeguro;
+    public void setSegurado(Segurado segurado) {
+        this.segurado = segurado;
     }
 
-    public void setValorSeguro(double valorSeguro) {
-        this.valorSeguro = valorSeguro;
+    public double getVlrApolice() {
+        return vlrApolice;
     }
 
-    public String getNomeSegurado() {
-        return nomeSegurado;
+    public void setVlrApolice(double vlrApolice) {
+        this.vlrApolice = vlrApolice;
     }
 
-    public void setNomeSegurado(String nomeSegurado) {
-        this.nomeSegurado = nomeSegurado;
+    public LocalDate getDtInicio() {
+        return dtInicio;
     }
 
-    public abstract double calcularPremio();
+    public void setDtInicio(LocalDate dtInicio) {
+        this.dtInicio = dtInicio;
+    }
+
+    public LocalDate getDtFim() {
+        return dtFim;
+    }
+
+    public void setDtFim(LocalDate dtFim) {
+        this.dtFim = dtFim;
+    }
+
+    public abstract String getDados();
+
+    @Override
+    public String toString() {
+        return String.format("Apólice: %s\nSegurado: %s\nValor Apólice: %.2f\nData Início: %s\nData Fim: %s",
+                apolice, segurado, vlrApolice, dtInicio, dtFim);
+    }
 }

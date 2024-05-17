@@ -1,5 +1,6 @@
 package br.edu.up.telas;
 
+import java.time.LocalDate;
 import java.util.Scanner;
 import br.edu.up.modelos.*;
 
@@ -10,8 +11,8 @@ public class SeguroView {
         scanner = new Scanner(System.in);
     }
 
-    public void exibirMenu() {
-        System.out.println("Menu de Opções:");
+    public int mostrarMenu() {
+        System.out.println("Menu:");
         System.out.println("1. Incluir seguro");
         System.out.println("2. Localizar seguro");
         System.out.println("3. Excluir seguro");
@@ -19,57 +20,96 @@ public class SeguroView {
         System.out.println("5. Listar todos os seguros");
         System.out.println("6. Ver quantidade de seguros");
         System.out.println("7. Sair");
-    }
-
-    public int lerOpcao() {
         System.out.print("Escolha uma opção: ");
         return scanner.nextInt();
     }
 
-    public Seguro solicitarDadosSeguro() {
-        System.out.print("Digite o tipo de seguro (1 - Vida, 2 - Veículo): ");
+    public Seguro criarSeguro() {
+        System.out.println("Selecione o tipo de seguro:");
+        System.out.println("1. Seguro de Vida");
+        System.out.println("2. Seguro de Veículo");
         int tipo = scanner.nextInt();
         scanner.nextLine(); 
-        System.out.print("Número da apólice: ");
-        String numeroApolice = scanner.nextLine();
-        System.out.print("Valor do seguro: ");
-        double valorSeguro = scanner.nextDouble();
+
+        System.out.print("Informe o número da apólice: ");
+        String apolice = scanner.nextLine();
+        System.out.print("Informe o nome do segurado: ");
+        String nome = scanner.nextLine();
+        System.out.print("Informe o RG do segurado: ");
+        String RG = scanner.nextLine();
+        System.out.print("Informe o CPF do segurado: ");
+        String CPF = scanner.nextLine();
+        System.out.print("Informe o sexo do segurado (M/F): ");
+        char sexoChar = scanner.nextLine().charAt(0);
+        Sexo sexo = sexoChar == 'M' ? Sexo.MASCULINO : Sexo.FEMININO;
+        System.out.print("Informe o telefone do segurado: ");
+        String telefone = scanner.nextLine();
+        System.out.print("Informe o endereço do segurado: ");
+        String endereco = scanner.nextLine();
+        System.out.print("Informe o CEP do segurado: ");
+        String CEP = scanner.nextLine();
+        System.out.print("Informe a cidade do segurado: ");
+        String cidade = scanner.nextLine();
+        System.out.print("Informe o valor da apólice: ");
+        double vlrApolice = scanner.nextDouble();
         scanner.nextLine(); 
-        System.out.print("Nome do segurado: ");
-        String nomeSegurado = scanner.nextLine();
+        System.out.print("Informe a data de início (yyyy-mm-dd): ");
+        LocalDate dtInicio = LocalDate.parse(scanner.nextLine());
+        System.out.print("Informe a data de fim (yyyy-mm-dd): ");
+        LocalDate dtFim = LocalDate.parse(scanner.nextLine());
+
+        Segurado segurado = new Segurado();
+        segurado.setNome(nome);
+        segurado.setRG(RG);
+        segurado.setCPF(CPF);
+        segurado.setSexo(sexo);
+        segurado.setTelefone(telefone);
+        segurado.setEndereco(endereco);
+        segurado.setCEP(CEP);
+        segurado.setCidade(cidade);
 
         if (tipo == 1) {
-            System.out.print("Idade do segurado: ");
-            int idadeSegurado = scanner.nextInt();
-            System.out.print("Valor de cobertura: ");
-            double valorCobertura = scanner.nextDouble();
-            return new SeguroVida(numeroApolice, valorSeguro, nomeSegurado, idadeSegurado, valorCobertura);
+            SeguroVida seguroVida = new SeguroVida();
+            seguroVida.setApolice(apolice);
+            seguroVida.setSegurado(segurado);
+            seguroVida.setVlrApolice(vlrApolice);
+            seguroVida.setDtInicio(dtInicio);
+            seguroVida.setDtFim(dtFim);
+            System.out.print("Cobre doença (true/false): ");
+            seguroVida.setCobreDoenca(scanner.nextBoolean());
+            System.out.print("Cobre acidente (true/false): ");
+            seguroVida.setCobreAcidente(scanner.nextBoolean());
+            return seguroVida;
+        } else if (tipo == 2) {
+            SeguroVeiculo seguroVeiculo = new SeguroVeiculo();
+            seguroVeiculo.setApolice(apolice);
+            seguroVeiculo.setSegurado(segurado);
+            seguroVeiculo.setVlrApolice(vlrApolice);
+            seguroVeiculo.setDtInicio(dtInicio);
+            seguroVeiculo.setDtFim(dtFim);
+            System.out.print("Informe o valor da franquia: ");
+            seguroVeiculo.setVlrFranquia(scanner.nextDouble());
+            System.out.print("Tem carro reserva (true/false): ");
+            seguroVeiculo.setTemCarroReserva(scanner.nextBoolean());
+            System.out.print("Cobre vidros (true/false): ");
+            seguroVeiculo.setCobreVidros(scanner.nextBoolean());
+            return seguroVeiculo;
         } else {
-            System.out.print("Marca do veículo: ");
-            String marcaVeiculo = scanner.nextLine();
-            System.out.print("Modelo do veículo: ");
-            String modeloVeiculo = scanner.nextLine();
-            System.out.print("Ano do veículo: ");
-            int anoVeiculo = scanner.nextInt();
-            return new SeguroVeiculo(numeroApolice, valorSeguro, nomeSegurado, marcaVeiculo, modeloVeiculo, anoVeiculo);
+            System.out.println("Tipo de seguro inválido.");
+            return null;
         }
     }
 
-    public void mostrarSeguro(Seguro seguro) {
-        System.out.println("Número da apólice: " + seguro.getNumeroApolice());
-        System.out.println("Valor do seguro: " + seguro.getValorSeguro());
-        System.out.println("Nome do segurado: " + seguro.getNomeSegurado());
-        System.out.println("Prêmio do seguro: " + seguro.calcularPremio());
+    public String pedirApolice() {
+        System.out.print("Informe o número da apólice: ");
+        return scanner.next();
+    }
 
-        if (seguro instanceof SeguroVida) {
-            SeguroVida seguroVida = (SeguroVida) seguro;
-            System.out.println("Idade do segurado: " + seguroVida.getIdadeSegurado());
-            System.out.println("Valor de cobertura: " + seguroVida.getValorCobertura());
-        } else if (seguro instanceof SeguroVeiculo) {
-            SeguroVeiculo seguroVeiculo = (SeguroVeiculo) seguro;
-            System.out.println("Marca do veículo: " + seguroVeiculo.getMarcaVeiculo());
-            System.out.println("Modelo do veículo: " + seguroVeiculo.getModeloVeiculo());
-            System.out.println("Ano do veículo: " + seguroVeiculo.getAnoVeiculo());
+    public void mostrarSeguro(Seguro seguro) {
+        if (seguro != null) {
+            System.out.println(seguro.getDados());
+        } else {
+            System.out.println("Seguro não encontrado.");
         }
     }
 

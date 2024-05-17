@@ -1,44 +1,37 @@
 package br.edu.up.modelos;
 
 public class SeguroVeiculo extends Seguro {
-    private String marcaVeiculo;
-    private String modeloVeiculo;
-    private int anoVeiculo;
+    private double vlrFranquia;
+    private boolean temCarroReserva;
+    private boolean cobreVidros;
 
-    public SeguroVeiculo(String numeroApolice, double valorSeguro, String nomeSegurado, String marcaVeiculo,
-            String modeloVeiculo, int anoVeiculo) {
-        super(numeroApolice, valorSeguro, nomeSegurado);
-        this.marcaVeiculo = marcaVeiculo;
-        this.modeloVeiculo = modeloVeiculo;
-        this.anoVeiculo = anoVeiculo;
+    public double getVlrFranquia() {
+        return vlrFranquia;
     }
 
-    public String getMarcaVeiculo() {
-        return marcaVeiculo;
+    public void setVlrFranquia(double vlrFranquia) {
+        this.vlrFranquia = vlrFranquia;
     }
 
-    public void setMarcaVeiculo(String marcaVeiculo) {
-        this.marcaVeiculo = marcaVeiculo;
+    public boolean isTemCarroReserva() {
+        return temCarroReserva;
     }
 
-    public String getModeloVeiculo() {
-        return modeloVeiculo;
+    public void setTemCarroReserva(boolean temCarroReserva) {
+        this.temCarroReserva = temCarroReserva;
     }
 
-    public void setModeloVeiculo(String modeloVeiculo) {
-        this.modeloVeiculo = modeloVeiculo;
+    public boolean isCobreVidros() {
+        return cobreVidros;
     }
 
-    public int getAnoVeiculo() {
-        return anoVeiculo;
-    }
-
-    public void setAnoVeiculo(int anoVeiculo) {
-        this.anoVeiculo = anoVeiculo;
+    public void setCobreVidros(boolean cobreVidros) {
+        this.cobreVidros = cobreVidros;
     }
 
     @Override
-    public double calcularPremio() {
-        return getValorSeguro() * 0.05 + (2024 - anoVeiculo) * 0.01;
+    public String getDados() {
+        return String.format("Seguro de Veículo:\n%s\nValor Franquia: %.2f\nTem Carro Reserva: %b\nCobre Vidros: %b",
+            super.toString(), vlrFranquia, temCarroReserva, cobreVidros);
     }
 }

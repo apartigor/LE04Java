@@ -1,34 +1,28 @@
 package br.edu.up.modelos;
 
 public class SeguroVida extends Seguro {
-    private int idadeSegurado;
-    private double valorCobertura;
+    private boolean cobreDoenca;
+    private boolean cobreAcidente;
 
-    public SeguroVida(String numeroApolice, double valorSeguro, String nomeSegurado, int idadeSegurado,
-            double valorCobertura) {
-        super(numeroApolice, valorSeguro, nomeSegurado);
-        this.idadeSegurado = idadeSegurado;
-        this.valorCobertura = valorCobertura;
+    public boolean isCobreDoenca() {
+        return cobreDoenca;
     }
 
-    public int getIdadeSegurado() {
-        return idadeSegurado;
+    public void setCobreDoenca(boolean cobreDoenca) {
+        this.cobreDoenca = cobreDoenca;
     }
 
-    public void setIdadeSegurado(int idadeSegurado) {
-        this.idadeSegurado = idadeSegurado;
+    public boolean isCobreAcidente() {
+        return cobreAcidente;
     }
 
-    public double getValorCobertura() {
-        return valorCobertura;
-    }
-
-    public void setValorCobertura(double valorCobertura) {
-        this.valorCobertura = valorCobertura;
+    public void setCobreAcidente(boolean cobreAcidente) {
+        this.cobreAcidente = cobreAcidente;
     }
 
     @Override
-    public double calcularPremio() {
-        return getValorSeguro() * 0.1 + valorCobertura * 0.02;
+    public String getDados() {
+        return String.format("Seguro de Vida:\n%s\nCobre Doença: %b\nCobre Acidente: %b",
+            super.toString(), cobreDoenca, cobreAcidente);
     }
 }
